@@ -161,10 +161,7 @@ public class NodoM {
         return data.length - cantUsadas;
     }
     
-    /**
-     * Devuelve true si y solo si todos los datas del nodo están usadas.
-     * @return 
-     */
+    /** @return true si y solo si todos los datas del nodo están usadas.*/
     public boolean isLleno(){
         return (cantDatasVacias()==0);
     }

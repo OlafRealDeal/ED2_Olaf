@@ -15,37 +15,8 @@ public class ArbolM {
     public int getCantNodos(){
         return n;
     }
-    public int cantNodos(){
-        return cantNodos(raiz);
-    }
-    private int cantNodos(NodoM N){
-        if (N==null)
-            return 0;
-        if (hoja(N))
-            return 1;
-        int ac=0;
-        for (int i = 1; i <= NodoM.M; i++) {
-            ac=ac+cantNodos(N.getHijo(i));
-        }
-        return ac+1;
-    }
-    public int altura(){
-        return altura(raiz);
-    }
-    private int altura(NodoM N){
-        if (N==null)
-            return 0;
-        if (hoja(N))
-            return 1;
-        int m=0;
-        for (int i = 1; i <= NodoM.M; i++) {
-            int h=altura(N.getHijo(1));
-            if(h > m)
-                m=h;
-        }
-        return m+1;
-    }
-    public void insertar(int x){
+    
+    public void add(int x){
         if (raiz == null){
             raiz = new NodoM(x);
         }
@@ -74,35 +45,11 @@ public class ArbolM {
         n++;
     }
     
-    public boolean hnoCercano(int a , int b){ 
-        return hnoCercano(raiz,a,b);
+    
+    private boolean hoja(NodoM T){
+        return (T !=null && T.cantHijos()==0);
     }
-    private boolean hnoCercano(NodoM N,int a ,int b ){
-        if (N==null) 
-            return false;
-        if (hoja(N))
-            return false;
-        
-        return true;
-    }
-    public void podar(){
-        podar(raiz);
-    }
-    private void podar(NodoM N){
-        if (N==null)
-            return;
-        if (hoja(N))
-            N=null;
-        else{
-            for (int i = 1; i <= NodoM.M; i++) {
-            podar(N.getHijo(i));
-            }
-            
-            if(hoja(N))
-                N=null;
-        }
-        
-    }
+    
     public void inorden(){
         System.out.print("Inorden:");
         if (raiz == null)
@@ -145,9 +92,7 @@ public class ArbolM {
           System.out.print(" "+N.getData(i)); 
     }
     
-    private boolean hoja(NodoM T){
-        return (T !=null && T.cantHijos()==0);
-    }
+    
     
     public void niveles(){
         niveles("");
@@ -167,7 +112,7 @@ public class ArbolM {
             niveles(raiz);
     }
 //---------- Métodos auxiliares para mostrar el árbol por niveles --------------
-        private void niveles(NodoM T){   //Pre: T no es null.
+    private void niveles(NodoM T){   //Pre: T no es null.
         LinkedList <NodoM> colaNodos   = new LinkedList<>();
         LinkedList<Integer> colaNivel = new LinkedList<>();
         
