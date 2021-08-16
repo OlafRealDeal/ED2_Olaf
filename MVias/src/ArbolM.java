@@ -152,6 +152,19 @@ public class ArbolM {
             }
         }
     }    
+   
+    private int cantNodos(NodoM T){
+        if(T==null)
+            return 0;
+        if(hoja(T))
+            return 1;
+        int ac = 0;
+        for( int i=1; i<=NodoM.M; i++){
+            int h=cantNodos(T.getHijo(i));
+            ac+=h;
+        }
+        return ac + 1;
+    }
 }
 
 
