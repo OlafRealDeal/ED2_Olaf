@@ -12,6 +12,16 @@ public class Main {
        ArbolM A = new ArbolM();
        cargarDatos(A);
        A.niveles();
+//        System.out.println(A.cantNodos());
+//        System.out.println(A.cantHojas());
+//        System.out.println(A.existe(50));
+//        System.out.println(A.hnoCercano(10, 30));
+//A.podar();
+//A.niveles();
+A.borrarHoja(15);
+A.niveles();
+
+
     }
     
 }
