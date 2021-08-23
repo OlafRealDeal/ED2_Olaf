@@ -29,11 +29,20 @@ public class NodoM {
     }
     
     
+    
     public NodoM getHijo(int i){
         if (indexValido(i, hijo.length, "getHijo"))  
             return hijo[i-1];
       
         return null;
+    }
+     public int posicion(int dato){
+        for (int i = 0; i <= M; i++) {
+            if (data[i]==dato) {
+                return i+1;
+            }
+        }
+        return -1;
     }
     
     
